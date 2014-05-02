@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>gr.dvm.struts2</groupId>
-  <artifactId>struts2-test-archetype</artifactId>
+  <artifactId>struts2-ejb-archetype</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>struts2-test-archetype</name>
+  <name>struts2-ejb-archetype</name>
 
   <build>
     <extensions>
@@ -28,11 +28,11 @@
     </pluginManagement>
   </build>
 
-  <url>https://github.com/dmouch/struts2-test</url>
+  <url>https://github.com/dmouch/struts2-ejb-archetype</url>
 
   <scm>
-    <connection>https://github.com/dmouch/struts2-test.git</connection>
-    <developerConnection>https://github.com/dmouch/struts2-test.git</developerConnection>
-    <url>https://github.com/dmouch/struts2-test</url>
+    <connection>https://github.com/dmouch/struts2-ejb-archetype.git</connection>
+    <developerConnection>https://github.com/dmouch/struts2-ejb-archetype.git</developerConnection>
+    <url>https://github.com/dmouch/struts2-ejb-archetype</url>
   </scm>
 </project>
