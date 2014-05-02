@@ -2,53 +2,73 @@
 <archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="struts2-test"
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileSets>
-    <fileSet encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>.gitignore</include>
-        <include>.pom.xml.swp</include>
-        <include>README.md</include>
-      </includes>
-    </fileSet>
-  </fileSets>
-  <modules>
-    <module id="${rootArtifactId}-common" dir="__rootArtifactId__-common" name="${rootArtifactId}-common" />
-    <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb" name="${rootArtifactId}-ejb">
-      <fileSets>
+    <fileSets>
         <fileSet encoding="UTF-8">
-          <directory>src/main/resources</directory>
-          <includes>
-            <include>**/*.MF</include>
-          </includes>
+            <directory></directory>
+            <includes>
+                <include>.gitignore</include>
+                <include>README.md</include>
+            </includes>
         </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
-      <fileSets>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/main/webapp</directory>
-          <includes>
-            <include>**/*.html</include>
-          </includes>
-        </fileSet>
-        <fileSet encoding="UTF-8">
-          <directory></directory>
-          <includes>
-            <include>.pom.xml.swp</include>
-          </includes>
-        </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear" name="${rootArtifactId}-ear">
-      <fileSets>
-        <fileSet encoding="UTF-8">
-          <directory>src/main/application</directory>
-          <includes>
-            <include>**/*.MF</include>
-          </includes>
-        </fileSet>
-      </fileSets>
-    </module>
-  </modules>
-</archetype-descriptor>
+    </fileSets>
+    <modules>
+        <module id="${rootArtifactId}-common" dir="__rootArtifactId__-common" name="${rootArtifactId}-common">
+            <fileSets>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/java/__packageInPathFormat__/common</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/java/__packageInPathFormat__/common</directory>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb" name="${rootArtifactId}-ejb">
+            <fileSets>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/java/__packageInPathFormat__/ejb/entity</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/java/__packageInPathFormat__/ejb/entity</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/java/__packageInPathFormat__/ejb/session</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/test/java/__packageInPathFormat__/ejb/session</directory>
+                </fileSet>
+                <fileSet encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.MF</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+            </module>
+            <module id="${rootArtifactId}-web" dir="__rootArtifactId__-web" name="${rootArtifactId}-web">
+                <fileSets>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/main/java/__packageInPathFormat__/web</directory>
+                    </fileSet>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/test/java/__packageInPathFormat__/web</directory>
+                    </fileSet>
+                    <fileSet filtered="true" encoding="UTF-8">
+                        <directory>src/main/webapp</directory>
+                        <includes>
+                            <include>**/*.html</include>
+                        </includes>
+                    </fileSet>
+                </fileSets>
+            </module>
+            <module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear" name="${rootArtifactId}-ear">
+                <fileSets>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/main/application</directory>
+                        <includes>
+                            <include>**/*.MF</include>
+                        </includes>
+                    </fileSet>
+                </fileSets>
+            </module>
+        </modules>
+    </archetype-descriptor>
