@@ -19,7 +19,7 @@
             <id>db-recreation</id>
             <activation>
                 <property>
-                    <name>db-recreate</name>
+                    <name>dbRecreate</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -69,6 +69,41 @@
                             </dbDropStatements>                 
                         </configuration>
                         <executions>
+                            <execution>
+                                <id>drop</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>drop</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>create</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>create</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>schema</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>schema</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>data</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>data</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>update</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                            </execution>
                         </executions>
                     </plugin>
                 </plugins>
@@ -76,52 +111,4 @@
         </profile>
     </profiles>
 
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>com.googlecode</groupId>-->
-                <!--<artifactId>maven-db-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<adminDbConnectionSettings>     -->
-                        <!--<jdbcDriver>${version.jdbc.driver}</jdbcDriver>-->
-                        <!--<jdbcUrl>${compilers.jdbc.admin.url}</jdbcUrl>-->
-                        <!--<userName>${compilers.jdbc.admin.username}</userName>-->
-                        <!--<password>${compilers.jdbc.admin.password}</password>-->
-                    <!--</adminDbConnectionSettings>    -->
-                    <!--<appDbConnectionSettings>       -->
-                        <!--<jdbcDriver>${version.jdbc.driver}</jdbcDriver>-->
-                        <!--<jdbcUrl>${compilers.jdbc.url}</jdbcUrl>-->
-                        <!--<userName>${compilers.jdbc.username}</userName>-->
-                        <!--<password>${compilers.jdbc.password}</password>-->
-                    <!--</appDbConnectionSettings>      -->
-
-                    <!--<sqlDelimiter> #--;</sqlDelimiter>-->
-                    <!--<scriptEncoding>UTF-8</scriptEncoding>-->
-
-                    <!--<dbDataScriptsDirectory><param>${project.basedir}/src/main/sql/data</param></dbDataScriptsDirectory>-->
-                    <!--<dbSchemaScriptsDirectory><param>${project.basedir}/src/main/sql/schema</param></dbSchemaScriptsDirectory>-->
-                    <!--<dbUpdateScriptsDirectory><param>${project.basedir}/src/main/sql/update</param></dbUpdateScriptsDirectory>-->
-
-                    <!--<dbCreateStatements>            -->
-                        <!--START TRANSACTION; #--;         -->
-                        <!--CREATE DATABASE ${compilers.jdbc.schema.name}-->
-                        <!--DEFAULT CHARACTER SET utf8      -->
-                        <!--DEFAULT COLLATE utf8_general_ci; #--;-->
-                        <!--GRANT USAGE ON *.* TO ${compilers.jdbc.username}@${compilers.jdbc.server.host} IDENTIFIED BY '${compilers.jdbc.password}'; #--;-->
-                        <!--GRANT ALL PRIVILEGES ON ${compilers.jdbc.schema.name}.* TO '${compilers.jdbc.username}'@'${compilers.jdbc.server.host}'; #--;-->
-                        <!--FLUSH PRIVILEGES; #--;          -->
-                        <!--COMMIT; #--;-->
-                    <!--</dbCreateStatements>               -->
-
-                    <!--<dbDropStatements>              -->
-                        <!--START TRANSACTION; #--;-->
-                        <!--DROP DATABASE ${compilers.jdbc.schema.name}; #--;-->
-                        <!--DROP USER '${compilers.jdbc.username}'@'${compilers.jdbc.server.host}'; #--;-->
-                        <!--FLUSH PRIVILEGES; #--;          -->
-                        <!--COMMIT; #--;                    -->
-                    <!--</dbDropStatements>                 -->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 </project>
