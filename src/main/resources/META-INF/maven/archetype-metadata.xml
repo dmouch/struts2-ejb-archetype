@@ -70,5 +70,27 @@
                     </fileSet>
                 </fileSets>
             </module>
+            <module id="${rootArtifactId}-sql" dir="__rootArtifactId__-sql" name="${rootArtifactId}-sql">
+                <fileSets>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/main/sql/schema</directory>
+                        <includes>
+                            <include>**/*.sql</include>
+                        </includes>
+                    </fileSet>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/main/sql/data</directory>
+                        <includes>
+                            <include>**/*.sql</include>
+                        </includes>
+                    </fileSet>
+                    <fileSet encoding="UTF-8">
+                        <directory>src/main/sql/update</directory>
+                        <includes>
+                            <include>**/*.sql</include>
+                        </includes>
+                    </fileSet>
+                </fileSets>
+            </module>
         </modules>
     </archetype-descriptor>
