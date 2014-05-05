@@ -28,6 +28,54 @@
                     <plugin>
                         <groupId>org.wildfly.plugins</groupId>
                         <artifactId>wildfly-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-jdbc-driver</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>deploy-artifact</goal>
+                                </goals>
+                                <configuration>
+                                    <groupId>${version.jdbc.groupId}</groupId>
+                                    <artifactId>${version.jdbc.artifactId}</artifactId>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>install-datasource</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>add-resource</goal>
+                                </goals>
+                                <configuration>
+                                    <address>subsystem=datasources,data-source=${ds.name}</address>
+                                    <resource>
+                                        <enableResource>true</enableResource>
+                                        <properties>
+                                            <connection-url>${${rootArtifactId}.jbdc.url</connection-url>
+                                            <jndi-name>java:jboss/datasources/${ds.name}</jndi-name>
+                                            <enabled>true</enabled>
+                                            <enable>true</enable>
+                                            <pool-name>${ds.pool.name}</pool-name>
+                                            <user-name>${${rootArtifactId}.jdbc.username}</user-name>
+                                            <password>${${rootArtifactId}.jdbc.password}</password>
+                                            <driver-name>${version.jdbc.artifactId}-${version.jdbc.version}.jar</driver-name>
+                                            <use-ccm>false</use-ccm>
+                                        </properties>
+                                    </resource>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>deploy</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>deploy</goal>
+                                </goals>
+                                <configuration>
+                                    <filename>${project.parent.name}.ear</filename>
+                                    <targetDir>${project.basedir}/../${project.parent.name}-ear/target/</targetDir>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
@@ -50,6 +98,13 @@
             </build>
         </profile>
     </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>${version.jdbc.groupId}</groupId>
+            <artifactId>${version.jdbc.artifactId}</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
 

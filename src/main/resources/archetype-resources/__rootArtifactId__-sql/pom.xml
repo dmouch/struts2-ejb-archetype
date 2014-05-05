@@ -31,15 +31,15 @@
                         <configuration>
                             <adminDbConnectionSettings>     
                                 <jdbcDriver>${version.jdbc.driver}</jdbcDriver>
-                                <jdbcUrl>${compilers.jdbc.admin.url}</jdbcUrl>
-                                <userName>${compilers.jdbc.admin.username}</userName>
-                                <password>${compilers.jdbc.admin.password}</password>
+                                <jdbcUrl>${${rootArtifactId}.jdbc.admin.url}</jdbcUrl>
+                                <userName>${${rootArtifactId}.jdbc.admin.username}</userName>
+                                <password>${${rootArtifactId}.jdbc.admin.password}</password>
                             </adminDbConnectionSettings>    
                             <appDbConnectionSettings>       
                                 <jdbcDriver>${version.jdbc.driver}</jdbcDriver>
-                                <jdbcUrl>${compilers.jdbc.url}</jdbcUrl>
-                                <userName>${compilers.jdbc.username}</userName>
-                                <password>${compilers.jdbc.password}</password>
+                                <jdbcUrl>${${rootArtifactId}.jdbc.url}</jdbcUrl>
+                                <userName>${${rootArtifactId}.jdbc.username}</userName>
+                                <password>${${rootArtifactId}.jdbc.password}</password>
                             </appDbConnectionSettings>      
 
                             <sqlDelimiter> #--;</sqlDelimiter>
