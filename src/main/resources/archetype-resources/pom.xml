@@ -45,6 +45,7 @@
         <version.ejb>2.3</version.ejb>
         <version.war>2.3</version.war>
         <version.dbplugin>1.4</version.dbplugin>
+        <version.wildfly>1.0.1.Final</version.wildfly>
     </properties>
 
     <dependencyManagement>
@@ -148,6 +149,11 @@
                             <version>${version.jdbc.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.plugins</groupId>
+                    <artifactId>wildfly-maven-plugin</artifactId>
+                    <version>${version.wildfly}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

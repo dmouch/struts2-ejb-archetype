@@ -92,5 +92,6 @@
                 </fileSet>
             </fileSets>
         </module>
+        <module id="${rootArtifactId}-server" dir="__rootArtifactId__-server" name="${rootArtifactId}-server" />
     </modules>
 </archetype-descriptor>
